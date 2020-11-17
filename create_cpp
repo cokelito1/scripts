@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ "$#" -ne 1 ]
+then
+	echo "create_cpp <project_name>"
+	exit 1
+fi
+
+cp -r ~/.scripts/cpp_template_project ~/$1 
+sed "s/_PROJECTNAME_/$1/g" -i ~/$1/CMakeLists.txt
+git init ~/$1
